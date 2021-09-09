@@ -23,6 +23,7 @@
 
 .sign-input {
   padding: 9px;
+  margin-bottom: 15px;
   min-width: 230px;
   max-width: 230px;
   border-radius: 5px;
@@ -36,8 +37,17 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  height: 200px;
-  padding: 9px;
+  max-height: 440px;
+  padding: 12px;
+}
+
+.sign-link {
+  color: #4433ff;
+  text-decoration: none;
+}
+.sign-link:hover {
+  color: #4433ff;
+  text-decoration: underline;
 }
 
 .css-button-sliding-to-left--sky {

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import SignIn from './sign-in/SignIn'
 import Home from './home/Home'
+import SignIn from './sign-in/SignIn'
+import SignUp from './sign-up/SignUp'
 
 export default function Main(props) {
 
@@ -11,17 +12,24 @@ export default function Main(props) {
   return (
     <main>
 
+      <Route exact path="/">
+        <Home currentUser={ currentUser } />
+      </Route>
+
       {/* render={(props)} allows us to use .history() */}
-      <Route exact path="/log" render={(props) => (
+      <Route exact path="/signin" render={(props) => (
         <SignIn
           {...props}
           setCurrentUser={setCurrentUser}
         />
       )} />
 
-      <Route exact path="/">
-        <Home currentUser={ currentUser } />
-      </Route>
+      <Route exact path="/signup" render={(props) => (
+        <SignUp
+          {...props}
+          setCurrentUser={setCurrentUser}
+        />
+      )} />
               
     </main>
   )

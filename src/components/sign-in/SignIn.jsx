@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 import './SignIn.css'
 import Icon from '../icon/Jelp.png'
 
@@ -13,8 +13,7 @@ export default function SignIn(props) {
     lastName: "Kujo",
     email: "yareyaredaze@email.com",
     username: "notDio",
-    password: 'notDio',
-    isAdmin: false
+    password: 'notDio'
   }
 
   const { setCurrentUser } = props
@@ -82,6 +81,8 @@ export default function SignIn(props) {
               />
               <button className="css-button-sliding-to-left--sky">Sign In</button>
             </form>
+
+            <p>Don't have an account? <Link className="sign-link" to="/signup">Sign Up</Link></p>
           </div>
 
           <div className="sign-icon-container">
