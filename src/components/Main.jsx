@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 
 import Home from './home/Home'
 import SignIn from './sign-in/SignIn'
@@ -12,7 +12,10 @@ export default function Main(props) {
     <main>
 
       <Route exact path="/">
-        <Home currentUser={ currentUser } />
+        <Home
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
       </Route>
 
       {/* render={(props)} allows us to use .history() */}

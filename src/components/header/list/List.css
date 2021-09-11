@@ -1,0 +1,11 @@
+.list-item {
+  padding-left: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.list-item:hover {
+  background-color: rgb(240, 240, 240);
+  font-weight: 600;
+}

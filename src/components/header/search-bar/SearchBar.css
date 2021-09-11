@@ -1,0 +1,11 @@
+.searchbar-input {
+  padding: 12px;
+  min-width: 300px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  position: relative;
+}
+
+.searchbar-input:focus {
+  outline: none;
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import './SearchPage.css'
 import SearchBar from '../search-bar/SearchBar'
 import List from '../list/List'
 
@@ -76,12 +76,20 @@ export default function SearchPage() {
       } else {
         return (
           <>
-            <p>No restaurants found</p>
+            <p style={{paddingLeft: '10px'}}>No restaurants found</p>
           </>
         )
       }
     } else {
       return null
+    }
+  }
+
+  const checkForInput = () => {
+    if (input.length > 0) {
+      return 'block'
+    } else {
+      return 'none'
     }
   }
 
@@ -91,7 +99,11 @@ export default function SearchPage() {
         input={input}
         updateList={updateList}
       />
-      { displayList() }
+      <div
+        style={{display: `${checkForInput()}`}}
+        className="list-container">
+        { displayList() }
+      </div>
     </>
   )
 }

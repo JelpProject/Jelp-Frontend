@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
-
+import {Link} from 'react-router-dom'
 import './DropdownButton.css'
 import DropdownMenu from '../dropdown-menu/DropdownMenu'
 
 export default function DropdownButton(props) {
-  const {currentUser} = props
+  const {setCurrentUser} = props
   const [display, setDisplay] = useState(false)
 
   // reference for outside clicks
@@ -30,16 +30,19 @@ export default function DropdownButton(props) {
   }, [])
 
   return (
-    <div className="dropdown" ref={node}>
-      <button
-        onClick={() => setDisplay(!display)}
-      >
-        Menu
-      </button>
+    <>
+      <div className="dropdown" ref={node}>
+        <button
+          className="css-button-sliding-to-top--grey"
+          onClick={() => setDisplay(!display)}
+        >
+        =
+        </button>
 
-      {display &&
-        <DropdownMenu currentUser={currentUser}/>
-      }
-    </div>
+        {display &&
+          <DropdownMenu setCurrentUser={ setCurrentUser }/>
+        }
+      </div>
+    </>
   )
 }
