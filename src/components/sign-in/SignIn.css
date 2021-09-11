@@ -88,4 +88,5 @@
 
 .sign-icon-container {
   padding: 12px;
+  align-self: flex-start;
 }
