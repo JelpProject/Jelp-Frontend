@@ -1,4 +1,5 @@
 import Header from '../header/Header'
+import Carousel from '../carousel/Carousel'
 
 export default function Home(props) {
   const { currentUser, setCurrentUser } = props
@@ -19,8 +20,9 @@ export default function Home(props) {
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
       />
-      <h1>This is the Home component</h1>
+      <br />
       {currentUserExists()}
+      <Carousel />
     </div>
   )
 }

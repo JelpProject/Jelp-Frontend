@@ -2,34 +2,12 @@ import { useState, useEffect } from 'react'
 import './SearchPage.css'
 import SearchBar from '../search-bar/SearchBar'
 import List from '../list/List'
+import SampleData from '../../sample-data/SampleData'
 
 export default function SearchPage() {
   const [input, setInput] = useState("")
   const [listDefault, setListDefault] = useState([])
   const [list, setList] = useState([])
-
-  const sampleData = [
-    {
-      id: 1,
-      name: "Tost Cafe"
-    },
-    {
-      id: 2,
-      name: "Taco Bell"
-    },
-    {
-      id: 3,
-      name: "Halal Munchies"
-    },
-    {
-      id: 4,
-      name: "Kimbob Spot"
-    },
-    {
-      id: 5,
-      name: "Deli from the Corner"
-    }
-  ]
 
   useEffect(() => {
     getData()
@@ -38,8 +16,8 @@ export default function SearchPage() {
   // need to make it async when making API calls
   const getData = () => {
 
-    setListDefault(sampleData)
-    setList(sampleData)
+    setListDefault(SampleData)
+    setList(SampleData)
 
   }
 
