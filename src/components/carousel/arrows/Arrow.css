@@ -1,0 +1,17 @@
+.arrow {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+}
+.arrow:hover {
+  transition: all 0.3s ease;
+  background-color: rgb(233, 232, 232);
+}
+
+.left-arrow {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.right-arrow {
+  border-radius: 0px 5px 5px 0px;
+}

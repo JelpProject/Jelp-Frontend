@@ -1,0 +1,9 @@
+.carousel-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.carousel-title {
+  text-align: center;
+}

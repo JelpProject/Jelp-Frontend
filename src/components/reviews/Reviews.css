@@ -1,0 +1,13 @@
+.reviews-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 55px;
+}
+.reviews-spacing {
+  padding: 15px;
+}
+.reviews-title {
+  text-align: center;
+}
