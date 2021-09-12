@@ -1,5 +1,6 @@
 import Header from '../header/Header'
 import Carousel from '../carousel/Carousel'
+import Reviews from '../reviews/Reviews'
 
 export default function Home(props) {
   const { currentUser, setCurrentUser } = props
@@ -23,6 +24,8 @@ export default function Home(props) {
       <br />
       {currentUserExists()}
       <Carousel />
+      <br />
+      <Reviews />
     </div>
   )
 }
