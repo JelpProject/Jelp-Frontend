@@ -32,7 +32,7 @@ export default function Header(props) {
             :
             <>
               <div className="notlogged-container">
-                <Link className="notlogged-item wobble-hor-top " to="/signin">
+                <Link style={{ marginRight: "15px"}} className="notlogged-item css-button-sliding-to-top--black" to="/signin">
                   Log In
                 </Link>
                 <Link className="notlogged-item css-button-sliding-to-top--black" to="/signup">

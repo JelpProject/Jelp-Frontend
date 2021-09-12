@@ -11,14 +11,15 @@ export default function SignUp(props) {
     lastName: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    retypedPassword: ""
   })
 
   const handleSubmit = e => {
     e.preventDefault()
 
     try {
-
+      delete newUser.retypedPassword
       setCurrentUser(newUser)
       props.history.push("/")
 
@@ -29,7 +30,8 @@ export default function SignUp(props) {
         lastName: "",
         email: "",
         username: "",
-        password: ""
+        password: "",
+        retypedPassword: ""
       })
     }
 
@@ -105,6 +107,14 @@ export default function SignUp(props) {
               value={newUser.password}
               onChange={handleChange}
             />
+            <input
+              className="sign-input"
+              placeholder="Retype Password"
+              name="retypePassword"
+              type="password"
+              value={newUser.retypePassword}
+              onChange={handleChange}
+            />
               
             <button className="css-button-sliding-to-left--sky">Create Account</button>
           </form>
@@ -118,7 +128,7 @@ export default function SignUp(props) {
         </div>
 
       </div>
-
+      <div style={{height: "100px"}}></div>
     </div>  
   </>
   )
