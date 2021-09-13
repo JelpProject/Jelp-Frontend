@@ -4,5 +4,6 @@ export default {
   lastName: "Kujo",
   email: "yareyaredaze@email.com",
   username: "notDio",
-  password: 'notDio'
+  password: 'notDio',
+  isAdmin: false
 }

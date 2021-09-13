@@ -25,7 +25,6 @@ export default function Header(props) {
           {currentUser != null ?
             <>
               <DropdownButton
-                currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
               />
             </>
