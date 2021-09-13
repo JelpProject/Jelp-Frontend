@@ -2,19 +2,10 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './SignIn.css'
 import Icon from '../icon/Jelp.png'
+import SampleData from '../sample-data/SampleSingleUser'
 
 
 export default function SignIn(props) {
-
-  // testing data
-  const userOne = {
-    id: 1,
-    firstName: "Jotaro",
-    lastName: "Kujo",
-    email: "yareyaredaze@email.com",
-    username: "notDio",
-    password: 'notDio'
-  }
 
   const { setCurrentUser } = props
 
@@ -22,8 +13,6 @@ export default function SignIn(props) {
     username: "",
     password: ""
   })
-
-  const [error, setError] = useState(false)
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -36,15 +25,14 @@ export default function SignIn(props) {
   const handleSubmit = e => {
     e.preventDefault()
     try {
-
-      if (newUser.username === userOne.username && newUser.password === userOne.password) {
-        setCurrentUser(userOne)
+      // SampleData is for testing purposes
+      if (newUser.username === SampleData.username && newUser.password === SampleData.password) {
+        setCurrentUser(SampleData)
       }
       props.history.push("/")
 
     } catch (error) {
       console.log(error)
-      setError(true)
     }
   }
   
