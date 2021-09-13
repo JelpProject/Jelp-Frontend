@@ -4,6 +4,7 @@ import Home from './home/Home'
 import SignIn from './sign-in/SignIn'
 import SignUp from './sign-up/SignUp'
 import UserPage from './user-page/UserPage'
+import RestaurantPage from './restaurant-page/RestaurantPage'
 
 export default function Main(props) {
 
@@ -40,7 +41,15 @@ export default function Main(props) {
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
         />
-      )}/>
+      )} />
+      
+      <Route exact path={`/restaurant/:id`} render={(props) => (
+        <RestaurantPage
+          {...props}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
+      ) }/>
               
     </main>
   )
