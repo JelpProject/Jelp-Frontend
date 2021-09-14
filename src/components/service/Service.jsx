@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 
-const baseUrl = "https://localhost:8080"
+const baseUrl = "http://localhost:8080"
 const api = "/api"
 
 // used in searchbar, user types name and api returns list of restaurants
@@ -25,8 +25,8 @@ export function getReviews() {
   return axios.get(`${baseUrl}` + `${api}` + `/reviews`)
 }
 // user adds a review
-export function addReview(review) {
-  return axios.post(`${baseUrl}` + `${api}` + `/add/review`, review)
+export function addReview(review, auth) {
+  return axios.post({headers: auth}, `${baseUrl}` + `${api}` + `/add/review`, review)
 }
 // user signs up
 export function createUser(user) {
@@ -35,6 +35,13 @@ export function createUser(user) {
 // user can be authenticated
 export function authenticate(user) {
   return axios.post(`${baseUrl}/authenticate`, user)
+}
+export function verify() {
+  const token = localStorage.getItem("token")
+  if (token) {
+    return JSON.parse(localStorage.getItem("token"))
+  }
+  return null
 }
 
 

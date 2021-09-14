@@ -8,6 +8,7 @@ export default function DropdownMenu(props) {
 
   const handleLogout = () => {
 
+    localStorage.removeItem("token")
     setCurrentUser(null)
     history.push("/")
   }

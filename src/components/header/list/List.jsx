@@ -8,7 +8,7 @@ const List = ({ list = [] }) => {
           if (data) {
             return (
               <div className="list-item" key={index}>
-                <Link className="list-link" to={`/restaurant/${data.id}`}>
+                <Link className="list-link" to={`/restaurant/${data.restaurantId}`}>
                   <label>{data.name}</label>
                 </Link>
               </div>	
