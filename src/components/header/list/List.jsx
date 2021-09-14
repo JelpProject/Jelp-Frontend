@@ -1,4 +1,5 @@
 import './List.css'
+import { Link } from 'react-router-dom'
 
 const List = ({ list = [] }) => {
   return (
@@ -7,8 +8,9 @@ const List = ({ list = [] }) => {
           if (data) {
             return (
               <div className="list-item" key={index}>
-                {/* need to change it to links to our restaurants */}
-                <label>{data.name}</label>
+                <Link className="list-link" to={`/restaurant/${data.id}`}>
+                  <label>{data.name}</label>
+                </Link>
               </div>	
             )	
           }

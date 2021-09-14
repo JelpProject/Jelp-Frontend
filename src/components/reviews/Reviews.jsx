@@ -11,6 +11,7 @@ export default function Reviews() {
       </div>
       <div className="reviews-container">
         {
+          // change SampleReview to get request with array of random reviews!
           SampleReview.map((data, index) => (
             <>
               <div className="reviews-spacing" key={index}>

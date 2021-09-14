@@ -1,4 +1,5 @@
 import { RatingView } from 'react-simple-star-rating'
+import { Link } from 'react-router-dom'
 
 export default function UserReviews(props) {
   const { reviews } = props
@@ -13,7 +14,9 @@ export default function UserReviews(props) {
                 {reviews.map((review, index) => (
                   <>
                     <div className="review-container" key={index}>
-                      <p>{ review.restaurant.name }</p>
+                      <Link className="review-link" to={`/restaurant/${review.restaurant.id}`}>
+                        <p>{ review.restaurant.name }</p>
+                      </Link>
                       <RatingView ratingValue={review.rating} size={25} />
                       <p>{ review.title }</p>
                       <p>{ review.description }</p>
