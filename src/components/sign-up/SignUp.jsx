@@ -51,10 +51,13 @@ export default function SignUp(props) {
     <>
     <div className="sign-container">
 
-      <div className="sign-title">
-        <h1>Jelp</h1>
-        <h3>Where weekends are spent!</h3>
-      </div>
+        <Link style={{textDecoration: "none"}} to="/">
+          <div className="sign-title">
+            <h1>Jelp</h1>
+            <h3>Where weekends are spent!</h3>
+          </div>
+        </Link>
+
 
       <div className="sign-form-container">
 
@@ -123,9 +126,11 @@ export default function SignUp(props) {
 
         </div>
 
-        <div className="sign-icon-container">
-          <img src={ Icon } width="300" height="100"/>
-        </div>
+        <Link style={{alignSelf: "flex-start"}} to="/">
+          <div className="sign-icon-container">
+            <img alt="header icon" src={ Icon } width="300" height="100"/>
+          </div>
+        </Link>
 
       </div>
       <div style={{height: "100px"}}></div>

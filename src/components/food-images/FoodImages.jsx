@@ -4,10 +4,12 @@ import Dessert from '../food-images/Dessert.jpg'
 import Dinner from '../food-images/Dinner.jpg'
 import Lunch from '../food-images/Lunch.jpg'
 
-export default [
+const FoodImages = [
   Breakfast,
   Cocktail,
   Dessert,
   Dinner,
   Lunch
 ]
+
+export default FoodImages

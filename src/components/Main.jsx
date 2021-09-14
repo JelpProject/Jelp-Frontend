@@ -1,4 +1,4 @@
-import { Route, useHistory } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import Home from './home/Home'
 import SignIn from './sign-in/SignIn'

@@ -1,12 +1,9 @@
-import { useState } from 'react'
 import FoodImages from '../../food-images/FoodImages'
 import './Slide.css'
 
 export default function Slide(props) {
   const { data, activeIndex } = props
   
-  const [display, setDisplay] = useState(false)
-
   return (
     
     <section>
@@ -17,6 +14,7 @@ export default function Slide(props) {
             key={index}
           >
             <img
+              alt="food"
               className="slide-image"
               src={FoodImages[activeIndex]}
             />
