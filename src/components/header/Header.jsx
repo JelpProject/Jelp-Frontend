@@ -12,9 +12,11 @@ export default function Header(props) {
   return (
     <>
       <div className='header-container'>
-        <div className='header-icon'>
-          <img src={ Icon } width="300px" height="100px"/>
-        </div>
+        <Link style={{alignSelf: "stretch"}} to="/">
+          <div className='header-icon'>
+            <img alt="header icon" src={ Icon } width="300px" height="100px"/>
+          </div>
+        </Link>
 
         <div className="header-searchbar">
           {/* searchbar */}

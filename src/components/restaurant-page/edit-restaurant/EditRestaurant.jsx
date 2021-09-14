@@ -13,7 +13,9 @@ export default function EditRestaurant(props) {
   })
 
   useEffect(() => {
+
     defaultData()
+
   }, [])
 
   const defaultData = () => {
@@ -32,7 +34,7 @@ export default function EditRestaurant(props) {
     // PUT request goes here
 
     // update restaurant with what response we get
-    // setRestaurant()
+    setRestaurant()
 
   }
 

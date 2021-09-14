@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUtensils } from '@fortawesome/free-solid-svg-icons'
-import SampleUser from '../sample-data/SampleSingleUser'
+// import SampleUser from '../sample-data/SampleSingleUser'
 import SampleAdmin from '../sample-data/SampleSingleAdmin'
 import SampleRestaurant from '../sample-data/SampleRestaurant'
 
