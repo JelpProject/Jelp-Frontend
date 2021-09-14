@@ -1,0 +1,95 @@
+.sign-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.sign-title {
+  text-align: center;
+  line-height: 12px;
+  margin-bottom: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+
+.sign-form-container {
+  text-align: center;
+  margin-top: 25px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 300px;
+}
+
+.sign-input {
+  padding: 9px;
+  margin-bottom: 15px;
+  min-width: 230px;
+  max-width: 230px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.sign-input:focus {
+  outline: none;
+}
+
+.sign-form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  max-height: 440px;
+  padding: 12px;
+}
+
+.sign-link {
+  color: #4433ff;
+  text-decoration: none;
+}
+.sign-link:hover {
+  color: #4433ff;
+  text-decoration: underline;
+}
+
+.css-button-sliding-to-left--sky {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid #4433ff;
+  color: #4433ff;
+}
+.css-button-sliding-to-left--sky:hover {
+  color: #fff;
+}
+.css-button-sliding-to-left--sky:hover:after {
+  width: 100%;
+}
+.css-button-sliding-to-left--sky:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: #4433ff;
+}
+
+.sign-icon-container {
+  padding: 12px;
+  align-self: flex-start;
+}
