@@ -3,7 +3,7 @@ import './DropdownButton.css'
 import DropdownMenu from '../dropdown-menu/DropdownMenu'
 
 export default function DropdownButton(props) {
-  const {setCurrentUser} = props
+  const {currentUser, setCurrentUser} = props
   const [display, setDisplay] = useState(false)
 
   // reference for outside clicks
@@ -39,7 +39,7 @@ export default function DropdownButton(props) {
         </button>
 
         {display &&
-          <DropdownMenu setCurrentUser={ setCurrentUser }/>
+          <DropdownMenu currentUser={currentUser} setCurrentUser={ setCurrentUser }/>
         }
       </div>
     </>
