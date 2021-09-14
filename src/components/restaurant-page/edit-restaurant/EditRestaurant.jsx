@@ -40,7 +40,9 @@ export default function EditRestaurant(props) {
 
   const handleChange = e => {
     const { name, value } = e.target
+
     setRestaurantData({
+      ...restaurantData,
       [name]: value
     })
   }

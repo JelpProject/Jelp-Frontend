@@ -33,3 +33,8 @@
   width: 100%;
   background: #495057;
 }
+
+.restaurant-page-button {
+  display: flex;
+  justify-content: center;
+}
