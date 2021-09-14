@@ -13,7 +13,7 @@ export default [
       rating: 5,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan elit. Mauris ac lacinia ante. Aenean facilisis eget tortor vel fermentum",
       restaurant: {
-        id: 1,
+        id: -1,
         name: "Small Lion Restaurant"
       }
     }
@@ -31,7 +31,7 @@ export default [
       rating: 1,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan elit. Mauris ac lacinia ante. Aenean facilisis eget tortor vel fermentum. Donec placerat auctor enim eget vehicula molestie",
       restaurant: {
-        id: 2,
+        id: -2,
         name: "The Nomad Cucina"
       }
     }
@@ -49,7 +49,7 @@ export default [
       rating: 3,
       description: "Lorem ipsum dolor sit apiscing elit. Sed vitae accumsan elit. Mauris ac lacinia ante. Aenean facilisis eget tortor vel fermentum. Donec placerat auctor enim eget vehicula molestie",
       restaurant: {
-        id: 3,
+        id: -3,
         name: "Whispering Voila! Chophouse"
       }
     }
@@ -67,7 +67,7 @@ export default [
       rating: 4,
       description: "Lorem ipsum dolor sit  Sed vitae accumsan elit. Mauris ac lacinia ante. Aenean facilisis eget tortor vel fermentum. Donec placerat auctor enim eget vehicula molestie",
       restaurant: {
-        id: 4,
+        id: -4,
         name: "Whispering Voila! Chophouse"
       }
     }
@@ -85,7 +85,7 @@ export default [
       rating: 5,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan elit. Mauris ac lacinia ante. Aenean facinec placerat auctor enim eget vehicula molestie",
       restaurant: {
-        id: 5,
+        id: -5,
         name: "Thirsty Goblet Place"
       }
     }
@@ -103,7 +103,7 @@ export default [
       rating: 2,
       description: "Lorem t, consectetur adipiscing elit. Sed vitae accumsan elit. Mauris ac lacinia ante. Aenean facilisis eget tortor vel fermentum. Donec placerat auctor enim eget vehicula molestie",
       restaurant: {
-        id: 6,
+        id: -6,
         name: " Cat Provisions"
       }
     }
