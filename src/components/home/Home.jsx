@@ -9,7 +9,7 @@ export default function Home(props) {
     if (currentUser != null) {
       return (
         <>
-          <h1 style={{textAlign: "center"}}>Welcome { currentUser.firstName }</h1>
+          <h1 style={{textAlign: "center"}}>Welcome { currentUser.fname }</h1>
         </>
       )
     }

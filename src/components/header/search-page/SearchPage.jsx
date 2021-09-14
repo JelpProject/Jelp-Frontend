@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import './SearchPage.css'
 import SearchBar from '../search-bar/SearchBar'
 import List from '../list/List'
-import SampleData from '../../sample-data/SampleData'
+// import SampleData from '../../sample-data/SampleData'
+import { getRestaurantsByName } from '../../service/Service'
 
 export default function SearchPage() {
   const [input, setInput] = useState("")
@@ -10,19 +11,27 @@ export default function SearchPage() {
   const [list, setList] = useState([])
 
   useEffect(() => {
+
     getData()
+
   }, [])
 
   // need to make it async when making API calls
-  const getData = () => {
+  const getData = async () => {
+    
+    if (input.length > 0) {
+      const res = await getRestaurantsByName(input)
+      console.log(res);
+      setListDefault(res.data)
+      setList(res.data)
+    }
 
-    setListDefault(SampleData)
-    setList(SampleData)
 
   }
 
   // might have to make an async function
   const updateList = (input) => {
+    getData()
 
     if (input.length === 0) {
       const emptyList = []

@@ -14,8 +14,8 @@ export default function RestaurantReviews(props) {
                 {reviews.map((review, index) => (
                   <>
                     <div key={index} className="review-container">
-                      <Link className="review-link" to={`/user/${review.user.username}`}>
-                        <p>{review.user.firstName} { review.user.lastName }</p>
+                      <Link className="review-link" to={`/user/${review.member.username}`}>
+                        <p>{review.member.fname} { review.member.lname }</p>
                       </Link>
                       <RatingView ratingValue={review.rating} size={25} />
                       <p>{ review.headline }</p>
