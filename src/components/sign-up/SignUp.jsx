@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { createUser, authenticate, verify } from '../service/Service'
 
 import Icon from '../icon/Jelp.png'
 
@@ -7,27 +8,35 @@ export default function SignUp(props) {
   const { setCurrentUser } = props
 
   const [newUser, setNewUser] = useState({
-    firstName: "",
-    lastName: "",
+    fname: "",
+    lname: "",
     email: "",
     username: "",
     password: "",
     retypedPassword: ""
   })
 
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
 
     try {
       delete newUser.retypedPassword
-      setCurrentUser(newUser)
+      await createUser(newUser)
+      const signedUser = {
+        username: newUser.username,
+        password: newUser.password
+      }
+      const token = await authenticate(signedUser)
+      localStorage.setItem("token", JSON.stringify(token.data))
+      const res = await verify()
+      setCurrentUser(res)
       props.history.push("/")
 
     } catch (error) {
       console.log(error)
       setNewUser({
-        firstName: "",
-        lastName: "",
+        fname: "",
+        lname: "",
         email: "",
         username: "",
         password: "",
@@ -70,18 +79,18 @@ export default function SignUp(props) {
             <input
               className="sign-input"
               placeholder="First Name"
-              name="firstName"
+              name="fname"
               type="text"
-              value={newUser.firstName}
+              value={newUser.fname}
               onChange={handleChange}
             />
               
             <input
               className="sign-input"
               placeholder="Last Name"
-              name="lastName"
+              name="lname"
               type="text"
-              value={newUser.lastName}
+              value={newUser.lname}
               onChange={handleChange}
             />
               
@@ -113,7 +122,7 @@ export default function SignUp(props) {
             <input
               className="sign-input"
               placeholder="Retype Password"
-              name="retypePassword"
+              name="retypedPassword"
               type="password"
               value={newUser.retypePassword}
               onChange={handleChange}

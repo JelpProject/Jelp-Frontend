@@ -1,17 +1,31 @@
 import { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
+import { addReview, getUserByUsername } from '../../service/Service'
 
-export default function AddReview() {
+export default function AddReview(props) {
+  const { currentUser, restaurant } = props
+  
   const [review, setReview] = useState({
     headline: "",
     detail: ""
   })
   const [rating, setRating] = useState(0)
 
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
 
+    const user = await getUserByUsername(currentUser.username)
     // Post request needs userID and restaurantID to connect it together
+
+    const newReview = {
+      restaurantId: restaurant.restaurantId,
+      memberId: user.data.mbrId,
+      headline: review.headline,
+      detail: review.detail,
+      rating: rating
+    }
+
+    await addReview(newReview, 'Bearer ' + currentUser.jwt)
   }
 
   const handleChange = (e) => {

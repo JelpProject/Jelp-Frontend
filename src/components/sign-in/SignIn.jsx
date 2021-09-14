@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './SignIn.css'
 import Icon from '../icon/Jelp.png'
 import SampleData from '../sample-data/SampleSingleUser'
-
+import { authenticate, verify } from '../service/Service'
 
 export default function SignIn(props) {
 
@@ -22,13 +22,14 @@ export default function SignIn(props) {
     })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
     try {
-      // SampleData is for testing purposes
-      if (newUser.username === SampleData.username && newUser.password === SampleData.password) {
-        setCurrentUser(SampleData)
-      }
+
+      const token = await authenticate(newUser)
+      localStorage.setItem("token", JSON.stringify(token.data))
+      const user = await verify()
+      setCurrentUser(user)
       props.history.push("/")
 
     } catch (error) {

@@ -5,6 +5,8 @@ import SampleUser from '../sample-data/SampleSingleUser'
 import SampleAdmin from '../sample-data/SampleSingleAdmin'
 import SampleRestaurant from '../sample-data/SampleRestaurant'
 
+import { getRestaurantsById } from '../service/Service'
+
 import './RestaurantPage.css'
 
 import Header from '../header/Header'
@@ -30,14 +32,20 @@ export default function RestaurantPage(props) {
     return restaurant[0]
   }
 
+  const getRestaurant = async(id) => {
+
+    const res = await getRestaurantsById(id)
+    console.log(res);
+    setRestaurant(res.data)
+  }
+
   useEffect(() => {
 
     const currentRestaurantId = props.match.params.id
-
-    setRestaurant(filterByRestaurant(currentRestaurantId))
-
-  },[props.match.params.id])
-
+    getRestaurant(currentRestaurantId)
+ 
+  }, [props.match.params.id])
+  
   return (
     <>
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
@@ -84,7 +92,7 @@ export default function RestaurantPage(props) {
 
             {displayAddReview ? 
               <>
-                <AddReview restaurant={restaurant} setRestaurant={ setRestaurant}/>
+                <AddReview currentUser={currentUser} restaurant={restaurant} setRestaurant={ setRestaurant}/>
               </>
               :
               <>
