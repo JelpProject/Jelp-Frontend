@@ -19,7 +19,7 @@ export default function RestaurantPage(props) {
   
   const [restaurant, setRestaurant] = useState(null)
   // only check for whether user is an admin or not, cannot be changed in browser
-  const [displayButton] = useState(SampleUser.isAdmin)
+  const [displayButton] = useState(false)
   const [displayEditSection, setDisplayEditSection] = useState(false)
 
   const [displayAddReview, setDisplayAddReview] = useState(false)
@@ -35,8 +35,10 @@ export default function RestaurantPage(props) {
   const getRestaurant = async(id) => {
 
     const res = await getRestaurantsById(id)
-    console.log(res);
     setRestaurant(res.data)
+
+    // const res = filterByRestaurant(props.match.params.id)
+    // setRestaurant(res)
   }
 
   useEffect(() => {
@@ -61,7 +63,7 @@ export default function RestaurantPage(props) {
             </div>       
         </div>
         
-        {displayButton ?
+        {displayButton && currentUser !== null ?
           <>
             <div className="restaurant-page-button">
               <button
