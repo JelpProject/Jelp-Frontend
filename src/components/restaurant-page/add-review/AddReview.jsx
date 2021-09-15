@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
-import { addReview, getUserByUsername } from '../../service/Service'
+import { addReview } from '../../service/Service'
 
 export default function AddReview(props) {
   const { currentUser, restaurant } = props
@@ -14,18 +14,24 @@ export default function AddReview(props) {
   const handleSubmit = async(e) => {
     e.preventDefault()
 
-    const user = await getUserByUsername(currentUser.username)
     // Post request needs userID and restaurantID to connect it together
 
     const newReview = {
       restaurantId: restaurant.restaurantId,
-      memberId: user.data.mbrId,
+      memberId: currentUser.mbrId,
       headline: review.headline,
       detail: review.detail,
       rating: rating
     }
+    console.log(newReview);
 
-    await addReview(newReview, 'Bearer ' + currentUser.jwt)
+    const jwt = localStorage.getItem("token")
+    const token = JSON.parse(jwt).jwt
+
+    // console.log(currentUser.)
+
+    const res = await addReview(newReview, 'Bearer ' + token)
+    console.log(res);
   }
 
   const handleChange = (e) => {

@@ -26,7 +26,10 @@ export function getReviews() {
 }
 // user adds a review
 export function addReview(review, auth) {
-  return axios.post({headers: auth}, `${baseUrl}` + `${api}` + `/add/review`, review)
+  return axios.post(`${baseUrl}` + `${api}` + `/add/review`, review, {
+    headers: {auth},
+    mode: 'cors'
+  })
 }
 // user signs up
 export function createUser(user) {

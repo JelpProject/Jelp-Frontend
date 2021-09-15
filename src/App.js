@@ -8,8 +8,15 @@ function App() {
 
   const handleVerify = async() => {
     const user = await verify()
-    setCurrentUser(user)
-    console.log(user)
+
+    if (user) {
+      delete user.jwt
+      setCurrentUser(user)
+    }
+    else {
+      setCurrentUser(null)
+    }
+
   }
 
   useEffect(() => {

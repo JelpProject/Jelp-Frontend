@@ -1,6 +1,6 @@
 export default [
   {
-    id: 1,
+    id: -1,
     name: "Small Lion Restaurant",
     address: "4446 My Drive",
     phone: "347-291-2566",
@@ -21,10 +21,10 @@ export default [
         headline: "Excellent Food",
         rating: 5,
         detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan elit. Mauris ac lacinia ante. Aenean facilisis eget tortor vel fermentum",
-        user: {
+        member: {
           id: 1,
-          firstName: "Jotaro",
-          lastName: "Kujo",
+          fname: "Jotaro",
+          lname: "Kujo",
           username: "notDio"
         }
       },
