@@ -3,7 +3,7 @@ import { Rating } from 'react-simple-star-rating'
 import { addReview } from '../../service/Service'
 
 export default function AddReview(props) {
-  const { currentUser, restaurant } = props
+  const { currentUser, restaurant, getRestaurant } = props
   
   const [review, setReview] = useState({
     headline: "",
@@ -30,8 +30,8 @@ export default function AddReview(props) {
 
     // console.log(currentUser.)
 
-    const res = await addReview(newReview, 'Bearer ' + token)
-    console.log(res);
+    await addReview(newReview, 'Bearer ' + token)
+
   }
 
   const handleChange = (e) => {

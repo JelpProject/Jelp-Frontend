@@ -4,6 +4,9 @@ import axios from 'axios'
 const baseUrl = "http://localhost:8080"
 const api = "/api"
 
+export function getAllRestaurants() {
+  return axios.get(`${baseUrl}` + `${api}` + `/restaurants`)
+}
 // used in searchbar, user types name and api returns list of restaurants
 export function getRestaurantsByName(name) {
   return axios.get(`${baseUrl}` + `${api}` + `/restaurants/name/` + name)
@@ -25,10 +28,9 @@ export function getReviews() {
   return axios.get(`${baseUrl}` + `${api}` + `/reviews`)
 }
 // user adds a review
-export function addReview(review, auth) {
+export function addReview(review, Authorization) {
   return axios.post(`${baseUrl}` + `${api}` + `/add/review`, review, {
-    headers: {auth},
-    mode: 'cors'
+    headers: { Authorization }
   })
 }
 // user signs up

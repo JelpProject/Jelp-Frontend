@@ -8,22 +8,22 @@ export default function Review(props) {
   return (
     <>
       <div className="review-container">
-        <Link className="review-link" to={`/user/${data.username}`}>
+        <Link className="review-link" to={`/user/${data.member.username}`}>
           <div>
-            <label>{data.firstName} {data.lastName}</label>
+            <label>{data.member.fname} {data.member.lname}</label>
           </div>
         </Link>
-        <Link className="review-link" to={`/restaurant/${data.review.restaurant.id}`}>
+        <Link className="review-link" to={`/restaurant/${data.restaurant.id}`}>
           <div>
-            <p>{ data.review.restaurant.name}</p>
+            <p>{ data.restaurant.name}</p>
           </div>
         </Link>
         <div>
-          <RatingView ratingValue={data.review.rating} size={25}/>
+          <RatingView ratingValue={data.rating} size={25}/>
         </div>
         <div>
-          <h3>{data.review.title}</h3>
-          <p>{ data.review.description }</p>
+          <h3>{data.headline}</h3>
+          <p>{ data.detail }</p>
         </div>
       </div>
     </>

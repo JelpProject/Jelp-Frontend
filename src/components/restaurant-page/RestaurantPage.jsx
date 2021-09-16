@@ -19,18 +19,18 @@ export default function RestaurantPage(props) {
   
   const [restaurant, setRestaurant] = useState(null)
   // only check for whether user is an admin or not, cannot be changed in browser
-  const [displayButton] = useState(false)
+  const [displayButton, setDisplayButton] = useState(false)
   const [displayEditSection, setDisplayEditSection] = useState(false)
 
   const [displayAddReview, setDisplayAddReview] = useState(false)
 
-  const filterByRestaurant = (id) => {
+  // const filterByRestaurant = (id) => {
 
-    const restaurant = SampleRestaurant.filter(res => {
-      return res.id === parseInt(id)
-    })
-    return restaurant[0]
-  }
+  //   const restaurant = SampleRestaurant.filter(res => {
+  //     return res.id === parseInt(id)
+  //   })
+  //   return restaurant[0]
+  // }
 
   const getRestaurant = async(id) => {
 
@@ -41,10 +41,18 @@ export default function RestaurantPage(props) {
     // setRestaurant(res)
   }
 
+  const adminCheck = () => {
+
+    if (currentUser !== null) {
+      setDisplayButton(currentUser.isAdmin)
+    }
+  }
+
   useEffect(() => {
 
     const currentRestaurantId = props.match.params.id
     getRestaurant(currentRestaurantId)
+    adminCheck()
  
   }, [props.match.params.id])
   
@@ -94,7 +102,11 @@ export default function RestaurantPage(props) {
 
             {displayAddReview ? 
               <>
-                <AddReview currentUser={currentUser} restaurant={restaurant} setRestaurant={ setRestaurant}/>
+                <AddReview
+                  currentUser={currentUser}
+                  restaurant={restaurant}
+                  setRestaurant={setRestaurant}
+                />
               </>
               :
               <>

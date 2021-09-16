@@ -8,8 +8,7 @@ const FoodImages = [
   Breakfast,
   Cocktail,
   Dessert,
-  Dinner,
-  Lunch
+  Dinner
 ]
 
 export default FoodImages
