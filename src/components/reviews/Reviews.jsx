@@ -2,7 +2,8 @@ import SampleReview from '../sample-data/SampleReview'
 import Review from "./review/Review"
 import './Reviews.css'
 
-export default function Reviews() {
+export default function Reviews(props) {
+  const {list} = props
 
   return (
     <>
@@ -12,7 +13,7 @@ export default function Reviews() {
       <div className="reviews-container">
         {
           // change SampleReview to get request with array of random reviews!
-          SampleReview.map((data, index) => (
+          list.map((data, index) => (
             <>
               <div className="reviews-spacing" key={index}>
                 <Review data={data}/>

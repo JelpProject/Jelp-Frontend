@@ -11,7 +11,7 @@ export default function Slide(props) {
       {
         data.map((arr, index) => (
           <>
-            <Link to={`/restaurant/${arr.id}`}>
+            <Link to={`/restaurant/${arr.restaurantId}`}>
               <div 
                 className={index === activeIndex ? "active" : "inactive"}
                 key={index}

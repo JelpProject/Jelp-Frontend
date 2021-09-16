@@ -14,12 +14,12 @@ export default function UserReviews(props) {
                 {reviews.map((review, index) => (
                   <>
                     <div className="review-container" key={index}>
-                      <Link className="review-link" to={`/restaurant/${review.restaurant.id}`}>
+                      <Link className="review-link" to={`/restaurant/${review.restaurantId}`}>
                         <p>{ review.restaurant.name }</p>
                       </Link>
                       <RatingView ratingValue={review.rating} size={25} />
-                      <p>{ review.title }</p>
-                      <p>{ review.description }</p>
+                      <p>{ review.headline }</p>
+                      <p>{ review.detail }</p>
                     </div>
                   </>
                 ))}

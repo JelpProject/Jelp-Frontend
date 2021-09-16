@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import LeftArrow from './arrows/LeftArrow'
 import RightArrow from './arrows/RightArrow'
-import SampleData from '.././sample-data/SampleData'
 import Slide from './slide/Slide'
 
 import "./Carousel.css"
 
-export default function Carousel() {
+export default function Carousel(props) {
+  const { list } = props
+
   const [activeIndex, setActiveIndex] = useState(0)
 
   const goToNextSlide = () => {
 
     let index = activeIndex
-    let length = SampleData.length
+    let length = list.length
 
     if (index === length - 1) {
       index = 0
@@ -27,7 +28,7 @@ export default function Carousel() {
   const goToPrevSlide = () => {
 
     let index = activeIndex
-    let length = SampleData.length
+    let length = list.length
 
     if (index < 1) {
       index = length - 1
@@ -47,7 +48,7 @@ export default function Carousel() {
       <div className="carousel-container">
         <LeftArrow goToPrevSlide={ goToPrevSlide}/>
         <Slide
-          data={SampleData}
+          data={list}
           activeIndex={activeIndex}
         />
         <RightArrow goToNextSlide={goToNextSlide}/>

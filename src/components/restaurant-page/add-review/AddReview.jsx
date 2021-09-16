@@ -3,7 +3,7 @@ import { Rating } from 'react-simple-star-rating'
 import { addReview } from '../../service/Service'
 
 export default function AddReview(props) {
-  const { currentUser, restaurant } = props
+  const { currentUser, restaurant, setDisplayAddReview, getRestaurant } = props
   
   const [review, setReview] = useState({
     headline: "",
@@ -18,20 +18,20 @@ export default function AddReview(props) {
 
     const newReview = {
       restaurantId: restaurant.restaurantId,
-      memberId: currentUser.mbrId,
+      mbrId: currentUser.mbrId,
       headline: review.headline,
       detail: review.detail,
       rating: rating
     }
-    console.log(newReview);
 
     const jwt = localStorage.getItem("token")
     const token = JSON.parse(jwt).jwt
 
-    // console.log(currentUser.)
+    await addReview(newReview, 'Bearer ' + token)
 
-    const res = await addReview(newReview, 'Bearer ' + token)
-    console.log(res);
+    getRestaurant(restaurant.restaurantId)
+    setDisplayAddReview(false)
+
   }
 
   const handleChange = (e) => {
