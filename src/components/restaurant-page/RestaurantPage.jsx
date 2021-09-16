@@ -51,6 +51,7 @@ export default function RestaurantPage(props) {
   useEffect(() => {
 
     const currentRestaurantId = props.match.params.id
+    // everytime page renders, it makes this call (causes an infinite loop/call)
     getRestaurant(currentRestaurantId)
     adminCheck()
  
@@ -106,6 +107,8 @@ export default function RestaurantPage(props) {
                   currentUser={currentUser}
                   restaurant={restaurant}
                   setRestaurant={setRestaurant}
+                  setDisplayAddReview={setDisplayAddReview}
+                  getRestaurant={getRestaurant}
                 />
               </>
               :
