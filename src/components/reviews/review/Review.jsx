@@ -13,7 +13,7 @@ export default function Review(props) {
             <label>{data.member.fname} {data.member.lname}</label>
           </div>
         </Link>
-        <Link className="review-link" to={`/restaurant/${data.restaurant.id}`}>
+        <Link className="review-link" to={`/restaurant/${data.restaurantId}`}>
           <div>
             <p>{ data.restaurant.name}</p>
           </div>
