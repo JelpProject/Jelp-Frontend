@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import { updateRestaurant } from '../../service/Service'
 
 import './EditRestaurant.css'
 
 export default function EditRestaurant(props) {
-  const { restaurant, setRestaurant } = props
+  const { restaurant, setRestaurant, getRestaurant, setDisplayEditSection } = props
 
   const [restaurantData, setRestaurantData] = useState({
     name: "",
@@ -29,13 +30,23 @@ export default function EditRestaurant(props) {
     }
   }
 
+  const updateData = async () => {
+    
+    const jwt = localStorage.getItem("token")
+    const token = JSON.parse(jwt).jwt
+
+    await updateRestaurant(restaurantData, 'Bearer ' + token)
+
+    getRestaurant(restaurant.restaurantId)
+    setDisplayEditSection(false)
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
     // PUT request goes here
 
     // update restaurant with what response we get
-    setRestaurant()
-
+    updateData()
   }
 
   const handleChange = e => {

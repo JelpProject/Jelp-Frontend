@@ -14,12 +14,9 @@ export default function DropdownMenu(props) {
   }
   return (
     <div className="dropdown-menu">
-      {/* Need to get currentUser.username for link to work */}
-      {/* <Link className="dropdown-item" to={`/user/${currentUser.username}`}> */}
-      <Link className="dropdown-item" to="/">
+      <Link className="dropdown-item" to={`/user/${currentUser.username}`}>
         My account
       </Link>
-
       <button onClick={() => handleLogout()} style={{width: "100%", border: "none"}} className="dropdown-item">
         Log out
       </button>

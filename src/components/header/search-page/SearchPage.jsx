@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import './SearchPage.css'
 import SearchBar from '../search-bar/SearchBar'
 import List from '../list/List'
-// import SampleData from '../../sample-data/SampleData'
 import { getRestaurantsByName } from '../../service/Service'
 
 export default function SearchPage() {

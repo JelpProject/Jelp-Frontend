@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUtensils } from '@fortawesome/free-solid-svg-icons'
-import SampleUser from '../sample-data/SampleSingleUser'
-import SampleAdmin from '../sample-data/SampleSingleAdmin'
-import SampleRestaurant from '../sample-data/SampleRestaurant'
 
 import { getRestaurantsById } from '../service/Service'
 
@@ -24,21 +21,11 @@ export default function RestaurantPage(props) {
 
   const [displayAddReview, setDisplayAddReview] = useState(false)
 
-  // const filterByRestaurant = (id) => {
-
-  //   const restaurant = SampleRestaurant.filter(res => {
-  //     return res.id === parseInt(id)
-  //   })
-  //   return restaurant[0]
-  // }
-
   const getRestaurant = async(id) => {
 
     const res = await getRestaurantsById(id)
     setRestaurant(res.data)
 
-    // const res = filterByRestaurant(props.match.params.id)
-    // setRestaurant(res)
   }
 
   const adminCheck = () => {
@@ -83,11 +70,18 @@ export default function RestaurantPage(props) {
             </div>              
             {displayEditSection ? 
               <>
-                <EditRestaurant restaurant={restaurant} setRestaurant={ setRestaurant}/>
+                <EditRestaurant
+                  restaurant={restaurant}
+                  setRestaurant={setRestaurant}
+                  getRestaurant={getRestaurant}
+                  setDisplayEditSection={setDisplayEditSection}
+                />
               </>
               :
               <>
-                <RestaurantReviews reviews={restaurant.reviews} />
+                <RestaurantReviews
+                  reviews={restaurant.reviews}
+                />
               </>
             }
           </>

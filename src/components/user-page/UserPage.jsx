@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import SampleUser from '../sample-data/SampleUser'
-import SampleSingleUser from '../sample-data/SampleSingleUser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -19,27 +17,8 @@ export default function UserPage(props) {
     user: {}
   })
 
-  // only used for testing, will switch to a GET request
-  // const filterByCurrentUsername = (str) => {
-
-  //   const user = SampleUser.filter(usr => {
-  //     return usr.username === str
-  //   })
-  //   return user[0]
-  // }
-
-  // const isItCurrentUser = (username) => {
-  //   // SampleSingleUser will become CurrentUser once it becomes stateful
-  //   if (SampleSingleUser.username === username) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
-
   const getUserData = async (username) => {
     const user = await getUserByUsername(username)
-    console.log(user.data);
 
     if (currentUser !== null) {
       setUserOnPage({
@@ -58,11 +37,6 @@ export default function UserPage(props) {
 
     const currentUserOnPage = props.match.params.username
     getUserData(currentUserOnPage)
-
-    // setUserOnPage({
-    //   currentUser: isItCurrentUser(currentUserOnPage),
-    //   user: filterByCurrentUsername(currentUserOnPage)
-    // })
 
   },[props.match.params.username])
 

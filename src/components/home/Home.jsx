@@ -32,7 +32,6 @@ export default function Home(props) {
     
     const list = await getReviews()
     const slicedList = list.data.slice(-6)
-    console.log(slicedList);
     setReviewList(slicedList)
   }
 

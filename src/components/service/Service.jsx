@@ -16,8 +16,10 @@ export function getRestaurantsById(id) {
   return axios.get(`${baseUrl}` + `${api}` + `/restaurants/` + id)
 }
 // used by admin to update restaurant
-export function updateRestaurant(restaurant) {
-  return axios.put(`${baseUrl}` + `${api}` + `/update/restaurant`, restaurant)
+export function updateRestaurant(restaurant, Authorization) {
+  return axios.put(`${baseUrl}` + `${api}` + `/update/restaurant`, restaurant, {
+    headers: {Authorization}
+  })
 }
 // user page updates on call
 export function getUserByUsername(username) {
